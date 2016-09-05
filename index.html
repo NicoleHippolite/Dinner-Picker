@@ -1,50 +1,39 @@
 <!DOCTYPE html>
+
 <html>
-    <head>
-        <title>Moodify</title>
-        <!--Boostrap's CSS-->
-        <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-        <!--Custom CSS-->
-        <link rel="stylesheet" type="text/css" href="./css/style.css">
-    </head>
-    <body>
-        <div class="container" id="page-container">
-            <h1 id="app-name">
-                <span class="glyphicon glyphicon-headphones"></span> moodify
-            </h1>
-            <!-- NB: glyphicon halflings are generally not free, but the developer made them free in bootstrap -->
+  <head>
+    <meta charset="UTF-8">
+    <title>Dinner Picker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./node_modules/hover.css/css/hover.css">
+    <link rel="stylesheet" type="text/css" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
 
-            <h2 id="page-header">
-                Get song recommendations based on your mood.
-            </h2>
-            <img id="selected-img" src="">
-            <h4 id="track-name"></h4>
+  <body>
+  <div class=boxModel id="header">
+     <h1 class = "title"> Dinner Picker </h1>
+  </div>
 
-            <div class="btn-wrapper">
-                <label class="btn btn-info" for="my-file-selector">
-                    <input id="my-file-selector" type="file">
-                    Upload a picture of you
-                </label>
-                <button type="button" class="btn btn-info" id="refreshbtn">Another song please</button>
-            </div>
-            <div id="musicplayer"></div>
-        </div>
-        <!-- 
-            NB: You generally do not want to publically expose the server structure (eg. ./node_modules/...)
-            will sort that in later bootcamps with task-runners and the like.
-            For now this is just a demonstration.
-            Alternatively can use CDNs for bootstrap/jquery
-        -->
+  <div class=boxModel id="content">
+    <div class="btn-wrapper">
+      <input type="button" class="btn btn-lg" id="ClickButton" onclick="change()" value="Pick your Dinner"></input>
+    </div>
+    <br>
+    <table style='width: 20%' id="Dinner">
+      <tr>
+        <th id="Table"></th>
+      </tr>
+    </table>
+  <div id="googleMap" style="width: 750px; height: 570px;"></div>
+  </div>
 
-        <!--jQuery Script-->
-        <script src="./node_modules/jquery/dist/jquery.min.js"></script>
-        <!--Bootstrap Script-->
-        <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-        <!--SoundCloud SDK-->
-        <script src="https://connect.soundcloud.com/sdk/sdk-3.1.2.js"></script>
-        <!--Custom Script-->
-        <script src="./js/main.js"></script>
-        <!-- Application insights -->
-        <script type="text/javascript">  var appInsights=window.appInsights||function(config){    function r(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s=u.createElement(o),i,f;s.src=config.url||"//az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(s);try{t.cookie=u.cookie}catch(h){}for(t.queue=[],i=["Event","Exception","Metric","PageView","Trace","Dependency"];i.length;)r("track"+i.pop());return r("setAuthenticatedUserContext"),r("clearAuthenticatedUserContext"),config.disableExceptionTracking||(i="onerror",r("_"+i),f=e[i],e[i]=function(config,r,u,e,o){var s=f&&f(config,r,u,e,o);return s!==!0&&t["_"+i](config,r,u,e,o),s}),t    }({        instrumentationKey:"5f8d5c05-87a7-40bb-9b5f-794ce5309081"    });           window.appInsights=appInsights;    appInsights.trackPageView();</script>
-    </body>
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPKPf8LdFTRkgXwmqxloHxgImCjt280e4&libraries=geometry,places&callback=initMap" async defer></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+
+
 </html>
