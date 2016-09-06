@@ -41,7 +41,7 @@ function initMap() {
   var geocoder = new google.maps.Geocoder();
   document.getElementById('submit').addEventListener('click', function() {geocodeAddress(geocoder, map);});
 
-  infowindow = new google.maps.InfoWindow({ map: map });
+  infowindow = new google.maps.InfoWindow();
 
   request = { location: pos, radius: 1000, query: document.getElementById("Table").textContent };
   service = new google.maps.places.PlacesService(map);
