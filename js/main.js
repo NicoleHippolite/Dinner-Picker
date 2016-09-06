@@ -138,7 +138,7 @@ function initMap() {
   service.textSearch(request, callback);
 
   function geocodeAddress(geocoder, resultsMap) {
-    var address = (<HTMLInputElement>document.getElementById("address")).value;;
+    var address = document.getElementById("address").value;;
     geocoder.geocode({'address': address}, function(results, status) {
       if (status == 'OK') {
         pos = results[0].geometry.location;
