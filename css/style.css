@@ -5,7 +5,7 @@ html {
 h1 {
   font-family: "Trebuchet MS", Helvetica, sans-serif;
   color: #FFF8DC;
-  Font-size: 100px;
+  Font-size: 80px;
   text-align: center;
   font-weight: bold;
 }
@@ -17,6 +17,7 @@ h1 {
 .btn {
   background-color: #003366;
   color: white;
+  margin-bottom: 7px;
 }
 
 btn:active {
@@ -61,7 +62,7 @@ th {
 .boxModel {
   background-color: transparent;
   /*border: 5px solid darkslategrey;*/
-  padding: 25px;
+  padding: 17px;
   margin: 5px;
   height: auto;
   margin-left: auto;
