@@ -52,7 +52,11 @@ function initMap() {
   service.textSearch(request, callback);
 
   function geocodeAddress(geocoder, resultsMap) {
+<<<<<<< HEAD
     var address = (<HTMLInputElement>document.getElementById("address")).value;
+=======
+    var address = (<HTMLInputElement>document.getElementById("address")).value;;
+>>>>>>> 24c3fb5795fc990acc4d3446d67e1e18291795ec
     geocoder.geocode({'address': address}, function(results, status) {
       if (status == 'OK') {
         pos = results[0].geometry.location;
@@ -91,4 +95,9 @@ function initMap() {
       infowindow.open(map, this);
     });
   }
+<<<<<<< HEAD
 }
+=======
+
+}
+>>>>>>> 24c3fb5795fc990acc4d3446d67e1e18291795ec
