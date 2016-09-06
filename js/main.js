@@ -29,51 +29,61 @@ var mapProp;
 var infowindow;
 var request;
 var service;
+var pos = {lat: -36.849, lng: 174.763};
+
 function initMap() {
-    mapProp = { center: null, zoom: 12, mapTypeId: google.maps.MapTypeId.ROADMAP };
-    map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
-    infowindow = new google.maps.InfoWindow({ map: map });
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
-            var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-            request = { location: pos, radius: 1000, query: document.getElementById("Table").textContent };
-            map.setCenter(pos);
-            infowindow = new google.maps.InfoWindow();
-            service = new google.maps.places.PlacesService(map);
-            service.textSearch(request, callback);
-        }, function () {
-            handleLocationError(true, infowindow, map.getCenter());
-        });
-    }
-    else {
-        //Browser doesn't support Geolocation
-        handleLocationError(false, infowindow, map.getCenter());
-    }
-    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-            'Error: The Geolocation service failed.' :
-            'Error: Your browser doesn\'t support geolocation.');
-    }
-    function callback(results, status) {
-        if (status == google.maps.places.PlacesServiceStatus.OK) {
-            for (var i = 0; i < results.length; i++) {
-                createMarker(results[i]);
-            }
-        }
-    }
-    // creates marker on map
-    function createMarker(place) {
-        var placeLoc = place.geometry.location;
+
+  mapProp = { center: pos, zoom: 11, mapTypeId: google.maps.MapTypeId.ROADMAP };
+
+  map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+
+  var geocoder = new google.maps.Geocoder();
+  document.getElementById('submit').addEventListener('click', function() {geocodeAddress(geocoder, map);});
+
+  infowindow = new google.maps.InfoWindow({ map: map });
+
+  request = { location: pos, radius: 1000, query: document.getElementById("Table").textContent };
+  service = new google.maps.places.PlacesService(map);
+  service.textSearch(request, callback);
+
+  function geocodeAddress(geocoder, resultsMap) {
+    var address = document.getElementById("address").value;
+    geocoder.geocode({'address': address}, function(results, status) {
+      if (status == 'OK') {
+        pos = results[0].geometry.location;
+        resultsMap.setCenter(pos);
         var marker = new google.maps.Marker({
-            map: map,
-            position: place.geometry.location
+          map: resultsMap, position: pos
         });
-        // gives info about marker
-        google.maps.event.addListener(marker, 'click', function () {
-            //reverse geocode to get address
-            infowindow.setContent(place.name);
-            infowindow.open(map, this);
-        });
+        return pos;
+      }
+      else {
+        alert('Geocode was not successful for the following reason: ' + status);
+      }
+    });
+  }
+
+  function callback(results, status) {
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+      for (var i = 0; i < results.length; i++) {
+        createMarker(results[i])
+      }
     }
+  }
+
+  // creates marker on map
+  function createMarker(place) {
+    var placeLoc = place.geometry.location;
+    var marker = new google.maps.Marker({
+      map: map,
+      position: place.geometry.location
+    });
+
+    // gives info about marker
+    google.maps.event.addListener(marker, 'click', function () {
+      //reverse geocode to get address
+      infowindow.setContent(place.name);
+      infowindow.open(map, this);
+    });
+  }
 }
