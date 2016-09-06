@@ -3,6 +3,7 @@
 declare var google: any;
 
 var myButtonValue = (<HTMLInputElement>document.getElementById("ClickButton")).value;
+var myButton = (<HTMLElement>document.getElementById("ClickButton"));
 
 //document.addEventListener("DOMContentLoaded", function(){
     //var myButton = document.getElementById("ClickButton");
