@@ -26,14 +26,39 @@
         <th id="Table"></th>
       </tr>
     </table>
-  <div id="googleMap" style="width: 750px; height: 570px;"></div>
+    <div id="map"></div>
+    <div id="address-panel">
+      <input id="address" type="textbox" value="Input your address">
+      <input id="submit" type="button" value="search">
+    </div>
+    <div id="googleMap" style="width: 750px; height: 570px;">
+   </div>
   </div>
 
     <script src="./node_modules/jquery/dist/jquery.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPKPf8LdFTRkgXwmqxloHxgImCjt280e4&libraries=geometry,places&callback=initMap" async defer></script>
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="./js/main.js"></script>
+    <!-- 
+To collect end-user usage analytics about your application, 
+insert the following script into each page you want to track.
+Place this code immediately before the closing </head> tag,
+and before any other scripts. Your first data will appear 
+automatically in just a few seconds.
+-->
+<script type="text/javascript">
+  var appInsights=window.appInsights||function(config){
+    function r(config){t[config]=function(){var i=arguments;t.queue.push(function(){t[config].apply(t,i)})}}var t={config:config},u=document,e=window,o="script",s=u.createElement(o),i,f;s.src=config.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js";u.getElementsByTagName(o)[0].parentNode.appendChild(s);try{t.cookie=u.cookie}catch(h){}for(t.queue=[],i=["Event","Exception","Metric","PageView","Trace","Dependency"];i.length;)r("track"+i.pop());return r("setAuthenticatedUserContext"),r("clearAuthenticatedUserContext"),config.disableExceptionTracking||(i="onerror",r("_"+i),f=e[i],e[i]=function(config,r,u,e,o){var s=f&&f(config,r,u,e,o);return s!==!0&&t["_"+i](config,r,u,e,o),s}),t
+    }({
+        instrumentationKey:"620e3811-296a-49a4-9158-4d84b0b11883"
+    });
+       
+    window.appInsights=appInsights;
+    appInsights.trackPageView();
+</script>
   </body>
+  
+  
 
 
 </html>
