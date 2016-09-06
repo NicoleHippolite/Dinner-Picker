@@ -73,4 +73,17 @@ body {
   background-color: #FFF8DC;
 }
 
+#address-panel {
+  /*position: absolute;
+  top: 10px;
+  left: 25%;
+  z-index: 5;*/
+  background-color: #FFF8DC;
+  padding: 5px;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+
 /*http://www.colorcombos.com/color-schemes/11/ColorCombo11.html*/
