@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 //<reference path="google.maps.d.ts" />
 //declare var $: any;
 var myButton = document.getElementById("ClickButton");
@@ -89,4 +89,3 @@ function initMap() {
   }
 
 }
->>>>>>> 24c3fb5795fc990acc4d3446d67e1e18291795ec
