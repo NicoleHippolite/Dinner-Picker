@@ -27,6 +27,10 @@ btn:active {
   color: white;
 }
 
+#submit:hover {
+  color: white;
+}
+
 table {
   margin-left: auto;
   margin-right: auto;
@@ -81,7 +85,7 @@ body {
   background-color: #FFF8DC;
   padding: 5px;
   text-align: center;
-  font-family: 'Roboto','sans-serif';
+  font-family: "Trebuchet MS", Helvetica, sans-serif;
   line-height: 30px;
   padding-left: 10px;
 }
