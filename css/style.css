@@ -23,9 +23,9 @@ btn:active {
   transform: translateY(3px);
 }
 
-/*#ClickButton:hover {
+#ClickButton:hover {
   color: white;
-}*/
+}
 
 table {
   margin-left: auto;
